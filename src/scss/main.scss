@@ -1,0 +1,20 @@
+@use "./variables";
+@use "./encabezado";
+@use "./portada";
+@use "./footer";
+@use "./categoria";
+@use "./detalle";
+
+
+body {
+    margin: 0;
+    font-family: variables.$font-base;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}

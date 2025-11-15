@@ -1,0 +1,214 @@
+@use "./variables";
+
+.detalle__hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 20%;
+        left: 10%;
+        color: white;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+    }
+
+    h2 {
+        color: black;
+        font-size: 2.5rem;
+        margin: 0;
+    }
+}
+
+
+
+/* Estilos base */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.articulos__container {
+    max-width: 1200px;
+    /* Ancho máximo del contenido */
+    margin: 20px auto;
+    /* Centra el contenedor y añade espacio arriba/abajo */
+    padding: 0 15px;
+    /* Espacio a los lados en pantallas pequeñas */
+
+    &__articulo {
+        margin-bottom: 40px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            /* Elimina el espacio extra debajo de la imagen */
+        }
+
+    }
+}
+
+
+
+/* Media Query para pantallas de escritorio */
+@media (min-width: 768px) {
+    .articulos__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Dos columnas en pantallas grandes */
+        gap: 20px;
+        /* Espacio entre columnas */
+    }
+
+    .articulo {
+        margin-bottom: 0;
+        /* Elimina el margen inferior si se usa grid */
+    }
+}
+
+
+
+/**                referentes.html               **/
+.referentes>nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.referentes>nav li {
+    display: inline;
+    color: rgb(245, 157, 35);
+    margin-left: 6px;
+}
+
+.referentes>nav li::before {
+    /* punto separador de los elementos del menu */
+    margin-left: -5px;
+    padding-right: 5px;
+    content: "\25CF";
+    font-size: 0.6em;
+    position: relative;
+    top: -0.2em;
+}
+
+.referentes>nav li:first-child::before {
+    content: "";
+}
+
+.referentes>nav a:link,
+.referentes>nav a:visited {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: rgb(245, 157, 35);
+}
+
+.referentes>nav a:hover {
+    color: rgb(93, 95, 121);
+}
+
+.referente {
+    margin-bottom: 40px;
+    color: rgb(93, 95, 121);
+}
+
+.referente .r-orden {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    color: rgb(240, 93, 80);
+    font-weight: 800;
+}
+
+.referente .r-disciplina,
+.referente .r-fecha {
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.referente .r-nombre {
+    font-weight: 700;
+    line-height: 1rem;
+}
+
+.referente .r-imagen {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.referente .r-detalle,
+.r-enlace {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    margin-top: 8px;
+}
+
+.referente .r-enlace a:link,
+.referente .r-enlace a:visited {
+    color: rgb(245, 157, 35);
+}
+
+.referente .r-enlace a:hover {
+    color: rgb(93, 95, 121);
+}
+
+@media screen and (min-width: 700px) {
+
+    /* Diseño para tablets (> 700 px de ancho)   */
+    .referente {
+        display: flex;
+    }
+
+    .ref-1 {
+        flex: 1;
+        padding-top: 10px;
+        padding-right: 5px;
+    }
+
+    .ref-2 {
+        flex: 1;
+    }
+
+    .ref-3 {
+        flex: 2;
+        margin: auto 0px;
+        padding-left: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    /* Diseño para ordenadores (> 1200 px de ancho)   */
+    .referentes {
+        display: flex;
+    }
+
+    .referentes nav {
+        flex: 1;
+    }
+
+    .referentes>nav li::before {
+        /* punto separador de los elementos del menu */
+        content: "";
+    }
+
+    .referentes .referente-container {
+        flex: 4;
+    }
+
+    .referentes nav li {
+        display: block;
+        text-align: left;
+    }
+
+    .referente-container {
+        padding: 0px;
+    }
+}

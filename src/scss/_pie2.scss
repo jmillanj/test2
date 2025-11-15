@@ -1,0 +1,151 @@
+@use "./variables";
+
+.pie {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    //color: variables.$color-texto-primario;
+    background: rgb(1, 1, 104);
+    color: grey;
+
+    a:link,
+    a:visited {
+        color: white;
+    }
+
+    a:hover {
+        color: rgb(245, 157, 35);
+    }
+}
+
+
+@use "./variables";
+
+// Definimos un ancho fluido y una altura fija para nuestro menú
+.encabezado {
+    background: variables.$color-fondo;
+    height: 60px;
+    position: relative;
+    width: 100%;
+
+
+    /* Fijamos nuestro nav en 100% ancho */
+    &__menu {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+
+        /* Quitamos estilos por defecto de el tag UL */
+        &__nav-menu {
+            max-height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        /* Convertimos nuestra lista de enlaces en un menú horizontal */
+        li {
+            display: block;
+            background: #33363b;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 1px solid #282b30;
+
+            /* Damos estilo a nuestros enlaces */
+            a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                line-height: 60px;
+                padding: 0 26px;
+
+                &:active,
+                &:focus {
+                    color: #ffc700;
+                }
+            }
+        }
+
+        /* Agregamos una animación al despliegue del menú */
+        &__open-menu {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+            max-height: 400px;
+            transition: max-height .4s ease;
+        }
+
+
+        /* Botón mostrar menú */
+        &__nav-mobile {
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            float: right;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            right: 0;
+            top: -60px;
+            opacity: 0.6;
+
+            /* Agregaremos esta clase a #nav-mobile, cuando el menu mobile haya sido desplegado */
+            &__nav-open {
+                opacity: 1;
+            }
+
+            span {
+                display: block;
+                width: 60%;
+                margin: 4px auto;
+                height: 4px;
+                background: #fff
+            }
+        }
+
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* ocultamos botón #nav-mobile */
+    .encabezado__menu__nav-mobile {
+        display: none;
+    }
+
+    /* Nuestro nav con id #menu lo flotaremos a la derecha */
+    .encabezado__menu {
+        width: auto;
+        float: right;
+        top: 0;
+        position: relative;
+
+        &__open-menu {
+            box-shadow: none;
+        }
+
+        /* Hacemos reset de max-height */
+        ul {
+            max-height: inherit;
+        }
+
+        /* Alineamos los items de forma horizontal */
+        li {
+            float: left;
+            border: 0;
+            background: transparent;
+
+            a {
+                display: block;
+                color: #fff;
+                padding: 0 26px;
+
+                &:hover {
+                    color: #ffc700;
+                    background: #151a1e;
+                }
+            }
+        }
+    }
+}
